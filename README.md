@@ -2,7 +2,9 @@
   <h1>Eigenlayer airdrop checker</h1>
 </div>
 ---
+
 🔔 <b>Subscribe to me:</b> https://t.me/AltcoinNetwork
+
 ---
 <h2>🚀 Installation</h2>
 
