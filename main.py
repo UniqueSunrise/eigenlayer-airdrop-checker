@@ -2,7 +2,7 @@ import asyncio
 import aiohttp
 
 
-async def check(address: str):
+async def check(address: str) -> float:
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get(
@@ -20,11 +20,17 @@ async def check(address: str):
 
 
 async def main():
+    total: float = 0
     with open("wallets.txt", "r") as file:
         wallet_addresses = file.readlines()
 
     for address in wallet_addresses:
-        print(f'{address.strip()}: {await check(address.strip())}')
+        drop = await check(address.strip())
+        if drop is not None:
+            print(f'{address.strip()}: {drop}')
+            total += drop
+
+    print(f'total: {total} $EIGEN tokens')
 
 
 if __name__ == '__main__':
